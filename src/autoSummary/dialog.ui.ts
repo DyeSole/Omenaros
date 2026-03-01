@@ -14,20 +14,25 @@ export function createAutoSummaryDialog(state: AutoSummaryDialogState): AutoSumm
   const $p = (window.parent as any).$ ?? $;
   const id = 'omenaros-autoSummary-dialog';
 
-  const $container = $p('<div>').attr('id', id).addClass('dialog-resizable dialog-teleported').css({
-    position: 'absolute',
-    willChange: 'transform',
-    transform: 'translate3d(0px, 0px, 0px)',
-    left: `${state.left}px`,
-    top: `${state.top}px`,
-    width: `${state.width}px`,
-    height: `${state.height}px`,
-    zIndex: 10000,
-    userSelect: 'auto',
-  });
+  const $container = $p('<div>')
+    .attr('id', id)
+    .addClass('dialog-resizable dialog-teleported')
+    .css({
+      position: 'absolute',
+      willChange: 'transform',
+      transform: 'translate3d(0px, 0px, 0px)',
+      left: `${state.left}px`,
+      top: `${state.top}px`,
+      width: `${state.width}px`,
+      height: `${state.height}px`,
+      zIndex: 10000,
+      userSelect: 'auto',
+    });
 
   const $dialog = $p('<div>')
-    .addClass('TH-custom-tailwind flex h-full flex-col overflow-hidden bg-(--SmartThemeBlurTintColor) shadow-lg rounded-sm')
+    .addClass(
+      'TH-custom-tailwind flex h-full flex-col overflow-hidden bg-(--SmartThemeBlurTintColor) shadow-lg rounded-sm',
+    )
     .attr('role', 'dialog')
     .attr('aria-modal', 'true');
 
@@ -48,13 +53,14 @@ export function createAutoSummaryDialog(state: AutoSummaryDialogState): AutoSumm
   $help.on('click', () => toastr.info('自动总结：后续将接入生成与历史管理', '自动总结'));
 
   const $collapse = $p('<div>')
-    .addClass('relative z-20 flex cursor-pointer items-center justify-center rounded-md border-none bg-transparent th-text-base!')
+    .addClass(
+      'relative z-20 flex cursor-pointer items-center justify-center rounded-md border-none bg-transparent th-text-base!',
+    )
     .append($p('<i>').addClass('fa-solid fa-chevron-up'));
 
-  const $close = $p('<div>')
-    .addClass(
-      'fa-solid fa-close relative z-20 flex cursor-pointer items-center justify-center rounded-md border-none bg-transparent th-text-base!',
-    );
+  const $close = $p('<div>').addClass(
+    'fa-solid fa-close relative z-20 flex cursor-pointer items-center justify-center rounded-md border-none bg-transparent th-text-base!',
+  );
 
   const $body = $p('<div>').addClass('flex flex-1 flex-col overflow-hidden p-1');
   const $content = $p('<div>').addClass('flex h-full flex-col overflow-hidden gap-2');

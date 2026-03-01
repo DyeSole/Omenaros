@@ -32,4 +32,3 @@ function init() {
 $(() => {
   errorCatched(init)();
 });
-

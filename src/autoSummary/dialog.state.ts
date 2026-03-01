@@ -39,4 +39,3 @@ export function writeDialogState($container: JQuery<HTMLElement>) {
     { type: 'script', script_id: getScriptId() },
   );
 }
-

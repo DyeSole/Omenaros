@@ -15,4 +15,3 @@ function init() {
 $(() => {
   errorCatched(init)();
 });
-
